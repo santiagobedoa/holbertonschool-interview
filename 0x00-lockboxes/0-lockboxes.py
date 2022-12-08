@@ -14,23 +14,23 @@ More info:
 
 
 def canUnlockAll(boxes):
-	"""
-	Description:
-	Write a method that determines if all the boxes can be opened
-	Arguments:
-	boxes --> List of Lists, it contains the boxes with keys
-	Return boolean
-	Variables:
-	myKeys --> List, Store the number keys to open boxes
-	key --> integer, key of the myKeys
-	boxKey --> integer, key inside of an specific box
-	"""
-	keys = [0]
-	for key in keys:
-		box = boxes[key]
-		for key_in_box in box:
-			if key_in_box not in keys and key_in_box < len(boxes):
-				keys.append(key_in_box)				
-	if len(keys) == len(boxes):
-		return True
-	return False
+    """
+    Description:
+    Write a method that determines if all the boxes can be opened
+    Arguments:
+    boxes --> List of Lists, it contains the boxes with keys
+    Return boolean
+    Variables:
+    myKeys --> List, Store the number keys to open boxes
+    key --> integer, key of the myKeys
+    boxKey --> integer, key inside of an specific box
+    """
+    keys = [0]
+    for key in keys:
+        box = boxes[key]
+        for key_in_box in box:
+            if key_in_box not in keys and key_in_box < len(boxes):
+                keys.append(key_in_box)
+    if len(keys) == len(boxes):
+        return True
+    return False
