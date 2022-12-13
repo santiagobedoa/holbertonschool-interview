@@ -303,3 +303,7 @@ carrie@ubuntu:0x01$ ./insert
 1024
 carrie@ubuntu:0x01$
 ```
+
+# Whiteboard
+
+![](insert_node.jpg)
