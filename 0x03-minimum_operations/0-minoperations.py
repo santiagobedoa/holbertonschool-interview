@@ -7,22 +7,24 @@ of operations needed to result in exactly n H characters in the file.
 """
 
 
+def countProcess(num):
+    """Return list of process until n H"""
+    con = 1
+    p_list = []
+    val = num
+    while val != 1:
+        con += 1
+        if val % con == 0:
+            while val % con == 0 and val != 1:
+                val /= con
+                p_list.append(con)
+
+    return p_list
+
+
 def minOperations(n):
-    target = n
-    # edge case: if n is 0 or 1, we can't perform any operations
-    if n <= 1:
+    """Return sum of process until n H"""
+    if n < 2 or type(n) is not int:
         return 0
-
-    # find the largest power of 2 that is less than or equal to n
-    num_operations = 0
-    while n > 1:
-        n //= 2
-        num_operations += 1
-
-    # perform Paste operations to reach the desired number of H characters
-    num_pastes = 0
-    while n < target:
-        n *= 2
-        num_pastes += 1
-
-    return num_operations + num_pastes
+    values = countProcess(n)
+    return sum(values)
