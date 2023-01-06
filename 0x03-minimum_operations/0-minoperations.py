@@ -7,7 +7,7 @@ of operations needed to result in exactly n H characters in the file.
 """
 
 
-def countProcess(int):
+def countProcess(num):
     """
     Returns a list of the prime factors of num.
 
