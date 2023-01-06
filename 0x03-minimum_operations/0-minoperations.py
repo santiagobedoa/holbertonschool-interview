@@ -30,8 +30,9 @@ def countProcess(num):
         # If target is divisible by counter, enter the inner loop
         if target % counter == 0:
             while target % counter == 0 and target != 1:
-                # Divide target by counter and append counter to the list of prime factors
+                # Divide target by counter
                 target /= counter
+                # append counter to the list of prime factors
                 primeList.append(counter)
     # Return the list of prime factors
     return primeList
