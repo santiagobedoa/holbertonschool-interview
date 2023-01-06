@@ -7,7 +7,7 @@ of operations needed to result in exactly n H characters in the file.
 """
 
 
-def countProcess(num: int) -> list[int]:
+def countProcess(int):
     """
     Returns a list of the prime factors of num.
 
@@ -37,7 +37,7 @@ def countProcess(num: int) -> list[int]:
     return primeList
 
 
-def minOperations(n: int) -> int:
+def minOperations(n):
     """
     Calculates the fewest number of operations needed to result in exactly n H
     characters in a file using a text editor that can execute only two
