@@ -3,6 +3,12 @@
 
 
 def validUTF8(data):
+    """
+    bit1 checks if significant byte is 1
+    bit2 checks if second significant byte is 0
+    nbytes keeps track of how many 1s before 0 occurs
+    data represented by a list of integers to check
+    """
     # Count the number of leading 1 bits in the first byte of the current char
     num_bytes = 0
     for i in range(8):
