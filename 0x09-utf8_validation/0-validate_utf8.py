@@ -34,7 +34,8 @@ def validUTF8(data):
             if nbytes == 1 or nbytes > 4:
                 return False
         else:
-            # If this is not the first byte in the sequence, check if it has the right bit pattern
+            # If this is not the first byte in the sequence,
+            # check if it has the right bit pattern
             if not (num & bit1 and not (num & bit2)):
                 return False
 
