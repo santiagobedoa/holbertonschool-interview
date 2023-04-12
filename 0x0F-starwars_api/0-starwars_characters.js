@@ -1,21 +1,27 @@
-const request = require("request-promise");
+const request = require("request");
 
 const movieID = process.argv[2];
 const apiUrl = `https://swapi.dev/api/films/${movieID}/`;
 
-request(apiUrl)
-  .then((movieData) => {
-    const characters = JSON.parse(movieData).characters;
-    const characterPromises = characters.map((characterUrl) => {
-      return request(characterUrl);
-    });
-    return Promise.all(characterPromises);
-  })
-  .then((characterData) => {
-    characterData.forEach((character) => {
-      console.log(JSON.parse(character).name);
-    });
-  })
-  .catch((error) => {
+request(apiUrl, (error, response, body) => {
+  if (error) {
     console.error(`Error: ${error}`);
-  });
+  } else if (response.statusCode !== 200) {
+    console.error(`HTTP Status Code: ${response.statusCode}`);
+  } else {
+    const movieData = JSON.parse(body);
+    const characters = movieData.characters;
+    characters.forEach((characterUrl) => {
+      request(characterUrl, (error, response, body) => {
+        if (error) {
+          console.error(`Error: ${error}`);
+        } else if (response.statusCode !== 200) {
+          console.error(`HTTP Status Code: ${response.statusCode}`);
+        } else {
+          const characterData = JSON.parse(body);
+          console.log(characterData.name);
+        }
+      });
+    });
+  }
+});
