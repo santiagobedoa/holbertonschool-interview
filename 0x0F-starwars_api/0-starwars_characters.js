@@ -26,4 +26,3 @@ request(apiUrl, (error, response, body) => {
     });
   }
 });
-
