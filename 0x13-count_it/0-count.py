@@ -1,18 +1,25 @@
 #!/usr/bin/python3
 """
-0x13. Count it! - Write a recursive function that queries the Reddit API,
-                  parses the title of all hot articles, and prints a sorted
-                  count of given keywords (case-insensitive, delimited by
-                  spaces.
-                  Javascript should count as javascript, but java should not).
+Count it problem
 """
 import requests
-import sys
 
 
 def count_words(subreddit, word_list, kw_cont={}, next_pg=None, reap_kw={}):
-    """all hot posts by keyword"""
-    headers = {"User-Agent": "julgachancipa"}
+    """
+    *******************************************************
+    **** Recursive function that queries the Reddit API ***
+    ******* prints a sorted count of given keywords *******
+    *******************************************************
+    @subreddit: string representing subreddit to search for
+    @word_list: collection of keywords to search in the
+                subreddit
+    @kw_cont: a copy of counted words
+    @next_pg: next page
+    @reap_kw: a dict for the counted words
+    Return: Nothing
+    """
+    headers = {"User-Agent": "me"}
 
     if next_pg:
         subRhot = requests.get(
