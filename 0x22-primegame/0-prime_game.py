@@ -27,12 +27,12 @@ def isWinner(x, nums):
     Return: name of the player that won the most rounds
     If the winner cannot be determined, return None"""
     score = {"Maria": 0, "Ben": 0}
-    primes = [0, 0, 2]
-    add_prime(max(nums), primes)
+    p = [0, 0, 2]
+    add_prime(max(nums), p)
 
     for round in range(x):
-        _sum = sum((i != 0 and i <= nums[round]) for i in primes[: nums[round] + 1])
-        if _sum % 2:
+        s = sum((i != 0 and i <= nums[round]) for i in p[: nums[round] + 1])
+        if s % 2:
             winner = "Maria"
         else:
             winner = "Ben"
